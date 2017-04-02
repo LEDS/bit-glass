@@ -7,7 +7,7 @@ namespace bitGlass.Controllers
 {
     public class LoginController : Controller
     {
-        private AdminContext context = new AdminContext();
+        private readonly AdminContext _context = new AdminContext();
 
         // GET: Login
         public ActionResult Index()
@@ -17,8 +17,11 @@ namespace bitGlass.Controllers
 
         public ActionResult Login(UsuarioLogin usuarioLogin)
         {
-            if (context.Logins.Any(u => u.Username == usuarioLogin.Username && u.Password == usuarioLogin.Password))
+            if (_context.Logins.Any(u => u.Username == usuarioLogin.Username && u.Password == usuarioLogin.Password))
+            {
+                TempData["User"] = usuarioLogin;
                 return RedirectToAction("Index", "Home");
+            }
 
             return new HttpNotFoundResult();
         }

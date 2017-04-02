@@ -1,4 +1,5 @@
 ﻿using System.Web.Mvc;
+using bitGlass.Models.Pessoas;
 
 namespace bitGlass.Controllers
 {
