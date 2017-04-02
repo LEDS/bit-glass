@@ -1,0 +1,23 @@
+language: csharp
+solution: bitGlass.sln
+
+dist: trusty
+sudo: required
+mono: none
+
+addons:
+  sonarqube:
+    organization: makeitcreative
+    branches:
+    - master
+    - develop
+    - travisci
+    token:
+      secure: lzAgMIypCqbb99BJOA8yxsSMyLnt3sj4PiWLJ2wItvva6yjNrRIU12zOlCh6MHFLRRHpatetGBfzZGw/yd/Wn+VvNZqqwMzHcwjNv3qYAYW6yugMuaLZbU92dnTUMjC6nkK0WlVURSb3AIZhpoTu5guuZ2sjThlMNpP1No4/lG0TUOfjO/HWt4z1omTzaPF+ZheJf959obpDuSeG42XaW+V34e+X5fy7J1jd17AyrecnAYzJJLx0EYISefQLLSPvxdBy1ARNdvnPS4K7UcHIBU+JhKfsreWF93hpIm64NanaTAA0pyzL3MFVF8JLe85zhTswb4RJE23wdvmnwUS4h+DJ4fr4zdjWikWTeu9SuPtAAIAbqLBs3NBosN5XkXhs7sXe1G3FEOzoF2dOshloM8iwU6KUzR/2ov5nN3yQAq9ete9ktKAE+iro/t0I7ETaZZUukhHrEHiKZtH38ln3EmNcwxFzjUqV0JNciAZQf6WHSWw+K8jxUDwT02upNLBm146aSqb+a73A1VGj65YbpprZew1qAkfYhwa2zakvaCVRf863O4qYYjgGNKvz9QHVjV5PpXfro8XKbwNS3yvxvaWs3U4m1CLk6Ylz1dyUk6+AIJ1KAMiS0idWib/sDMvRwFV6UqQ0RzxiDdOTmfiXS6/qfEr8WtlY7CMPI/6u8K8=
+
+script:
+  - sonar-scanner
+
+env:
+  global:
+    secure: eN412MB0fwGfZVlodUZAtKqIVp89KdAxbqzZ7qWsozIwIVu7IQ2u7asOeQrwnt/E8HN0CEIUoKgpysvMQEwHyLN/vtVk7wr0Wu91UbhYLL3Sq7tSGxTclVB3EFgO8JIEe7lqntH8+/feeErGsDXe1SG2QymZ3VNyTnvELizOi7s5qHHdYhNiQ3IrZZ4xoC1KCSG2hTfoGRoGp8T+vx+YglC/9HBwoMjmqFaNm28Yj1DgVeiowkW0T+cyHGfMTKplEBeQnpwYc0bJGRBgheXuRZVkwoA3V1hpF069doouHHbWqtvuYp9XF60rMyYjlfu/gg53IVyH9boUUSYmyPLAp/sywQv6xbZ2Ac+DYZbVUKA0MMS+LyyqQQKQvq3ScptBAoUSGxGXzwfwSBcCFjJtVxPovCNRdpsag3Dv8iOe4oNSRdm90fvE0WvQoISuezTl1oqL1fj42TyfBdY3P4vKWu5t0TjxZJXvshjA5sxqfKStIVE9U38OvzPAdkIg81UrCN/ksqoag/wR6D+b/PA9qvjvHh0GJG9rX7RGw8ILt/H29VFIKhL++anjymfd3VVPPGI8Uj6nvXIm9wKlWDUhP+SMmBgHPuqrIZ5DJ2rsLZrvFNqniZU8+cJNSVNHCrZH0TOSxmG3P+4vFSRU52QM4k0T81H8j2vceqgJ8ZOY02k=

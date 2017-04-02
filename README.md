@@ -1,1 +1,3 @@
-bitGlass
+# bitGlass
+
+![https://ci.appveyor.com/api/projects/status/github/Niddhogur/bit-glasses?branch=develop&retina=true](https://ci.appveyor.com/api/projects/status/github/Niddhogur/bit-glasses?branch=develop&svg=true) ![Quality Gate](https://sonarqube.com/api/badges/gate?key=makeitcreative:develop) ![Measure](https://sonarqube.com/api/badges/measure?key=makeitcreative:develop&metric=code_smells) ![Measure](https://sonarqube.com/api/badges/measure?key=makeitcreative:develop&metric=bugs) ![Measure](https://sonarqube.com/api/badges/measure?key=makeitcreative:develop&metric=reliability_rating) ![Measure](https://sonarqube.com/api/badges/measure?key=makeitcreative:develop&metric=security_rating) ![Measure](https://sonarqube.com/api/badges/measure?key=makeitcreative:develop&metric=sqale_rating)
