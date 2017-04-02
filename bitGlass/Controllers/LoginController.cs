@@ -12,6 +12,9 @@ namespace bitGlass.Controllers
         // GET: Login
         public ActionResult Index()
         {
+            if (TempData.Peek("User") != null)
+                return RedirectToAction("Index", "Home");
+
             return View();
         }
 
@@ -24,6 +27,12 @@ namespace bitGlass.Controllers
             }
 
             return new HttpNotFoundResult();
+        }
+
+        public ActionResult Logout()
+        {
+            TempData.Remove("User");
+            return RedirectToAction("Index");
         }
     }
 }

@@ -8,6 +8,7 @@ namespace bitGlass.Controllers
         // GET: Home
         public ActionResult Index()
         {
+            ViewBag.Title = "Home";
             return View();
         }
     }

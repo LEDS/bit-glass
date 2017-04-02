@@ -116,6 +116,7 @@
     <Content Include="Content\css\uniform.css" />
     <Content Include="Content\fonts\fontawesome-webfont.svg" />
     <Content Include="Content\img\breadcrumb.png" />
+    <Content Include="Content\img\envelope.png" />
     <Content Include="Content\img\glyphicons-halflings-white.png" />
     <Content Include="Content\img\gritter.png" />
     <Content Include="Content\img\hue.png" />
@@ -203,6 +204,7 @@
     <Content Include="Views\Home\Index.cshtml" />
     <Content Include="Views\Shared\_Layout.cshtml" />
     <Content Include="Views\_ViewStart.cshtml" />
+    <Content Include="Views\Shared\_TopHeader.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

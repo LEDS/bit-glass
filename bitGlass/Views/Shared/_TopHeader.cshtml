@@ -4,22 +4,25 @@
     <ul class="nav">
         <li class="dropdown" id="profile-messages">
             <a title="" href="#" data-toggle="dropdown" data-target="#profile-messages" class="dropdown-toggle">
-                <i class="icon icon-user"></i> <span class="text">Welcome @Model.Username</span><b class="caret"></b>
+                <i class="icon icon-user"></i> <span class="text">Bem-vindo, @Model.Username!</span><b class="caret"></b>
             </a>
+
             <ul class="dropdown-menu">
                 <li>
-                    <a href="#"><i class="icon-user"></i> My Profile</a>
+                    <a href="#"><i class="icon-user"></i> Perfil</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="#"><i class="icon-check"></i> My Tasks</a>
+                    <a href="#"><i class="icon-check"></i> Tarefas</a>
                 </li>
                 <li class="divider"></li>
                 <li>
-                    <a href="login.html"><i class="icon-key"></i> Log Out</a>
+                    <a href=@Url.Action("Logout", "Login")><i class="icon-key"></i> Sair</a>
                 </li>
             </ul>
         </li>
+
+        <!-- (02/April/2017) Trecho que será aproveitado futuramente.
         <li class="dropdown" id="menu-messages">
             <a href="#" data-toggle="dropdown" data-target="#menu-messages" class="dropdown-toggle">
                 <i class="icon icon-envelope"></i> <span class="text">Messages</span> <span class="label label-important">5</span> <b class="caret"></b>
@@ -42,11 +45,14 @@
                 </li>
             </ul>
         </li>
+        -->
+
         <li class="">
             <a title="" href="#">
                 <i class="icon icon-cog"></i> <span class="text">Settings</span>
             </a>
         </li>
+
         <li class="">
             <a title="" href="login.html">
                 <i class="icon icon-share-alt"></i> <span class="text">Logout</span>
