@@ -122,6 +122,7 @@
     <Content Include="Content\img\hue.png" />
     <Content Include="Content\img\larrow.png" />
     <Content Include="Content\img\line.png" />
+    <Content Include="Content\img\logo-mini.png" />
     <Content Include="Content\img\logo.png" />
     <Content Include="Content\img\menu-active.png" />
     <Content Include="Content\img\rarrow.png" />
