@@ -25,15 +25,19 @@ namespace bitGlass.Controllers
 
         // GET /Paciente/Novo
         [HttpGet]
-        public ActionResult Novo()
+        public async Task<ActionResult> Novo()
         {
+            ViewBag.Cidades = new SelectList(await _context.Cidades.ToListAsync(), "CidadeId", "Nome");
             return View();
         }
 
         [HttpPost]
         public ActionResult Novo(Paciente paciente)
         {
-            throw new NotImplementedException();
+            _context.Pacientes.Add(paciente);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
 
         // GET /Paciente/Detalhes/1
@@ -45,7 +49,12 @@ namespace bitGlass.Controllers
         // POST /Paciente/Deletar/1
         public ActionResult Deletar(int id)
         {
-            throw new NotImplementedException();
+            var paciente = _context.Pacientes.First(p => p.TelefonavelId == id);
+
+            _context.Pacientes.Remove(paciente);
+            _context.SaveChanges();
+
+            return RedirectToAction("Index");
         }
     }
 }

@@ -147,7 +147,6 @@ else
         </div>
 
         <div class="container-fluid">
-            <hr/>
             @RenderBody()
         </div>
     </div>
@@ -161,7 +160,10 @@ else
     </div>
     <!--end-Footer-part-->
 
+    <!--scripts do template-->
     @RenderSection("BasicScripts")
+    <!--fim scripts do template-->
+
 
     <script type="text/javascript">
         // This function is called from the pop-up menus to transfer to
@@ -188,7 +190,7 @@ else
         }
     </script>
 
-    <!-- Renderiza scripts opcionais -->
+    <!-- scripts opcionais -->
     @RenderSection("Scripts", required: false)
 
     </body>

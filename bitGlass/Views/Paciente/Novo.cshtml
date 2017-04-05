@@ -1,6 +1,20 @@
-﻿@{
+﻿@model bitGlass.Models.Pessoas.Paciente
+
+@{
     ViewBag.Title = "Novo Paciente";
 }
+
+<style>
+    .mwrap {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 6px;
+        padding-right: 6px;
+        margin-bottom: 10px !important
+    }
+
+    .nomargin { margin-left: 0 !important }
+</style>
 
 @section BreadcrumbsBody
 {
@@ -22,7 +36,6 @@
     <script src="~/Content/js/bootstrap-datepicker.js"></script>
     <script src="~/Content/js/masked.js"></script>
     <script src="~/Content/js/jquery.uniform.js"></script>
-    <script src="~/Content/js/select2.min.js"></script>
     <script src="~/Content/js/matrix.js"></script>
     <script src="~/Content/js/matrix.form_common.js"></script>
     <script src="~/Content/js/wysihtml5-0.3.0.js"></script>
@@ -37,67 +50,56 @@
             <span class="icon">
                 <i class="icon-align-justify"></i>
             </span>
-            <h5>Personal-info</h5>
+            <h5>Informações Pessoais</h5>
         </div>
 
-        <div class="widget-content nopadding">
-            @using (Html.BeginForm("Novo", "Paciente", FormMethod.Post, new {@class = "form-horizontal"}))
+        <div class="widget-content">
+            @using (Html.BeginForm("Novo", "Paciente", FormMethod.Post, new {@class = "widget-content", style = "border-bottom-width: 0px;"}))
             {
                 <div class="control-group">
-                    <label class="control-label">First Name :</label>
-                    <div class="controls">
-                        <input class="span11" placeholder="First name" type="text">
+                    <label class="control-label">Nome</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("PrimeiroNome", Model, new {placeholder = "Insira o Primeiro Nome", @class = "span6"})
+                        @Html.TextBox("SegundoNome", Model, new {placeholder = "Insira o Segundo Nome", @class = "span6"})
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label">Last Name :</label>
-                    <div class="controls">
-                        <input class="span11" placeholder="Last name" type="text">
+                    <label class="control-label">Date de Nascimento</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("DataNascimento", Model, new {placeholder = "Insira a Data de Nascimento", @class = "datepicker span6", type = "date"})
+                        @Html.TextBox("Rg", Model, new {placeholder = "Insira o Rg", @class = "span6"})
                     </div>
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label">Date picker (dd-mm)</label>
-                    <div class="controls">
-                        <input data-date="01-02-2013" data-date-format="dd-mm-yyyy" value="01-02-2013" class="datepicker span11" type="text">
-                        <span class="help-block">Date with Formate of (dd-mm-yy)</span>
+                    <label class="control-label">Endereço</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("Bairro", Model, new {placeholder = "Insira o Bairro", @class = "span6"})
+                        @Html.TextBox("Cep", Model, new {placeholder = "Insira o Cep", @class = "span3"})
+                        @Html.DropDownListFor(p => p.CidadeId, ViewBag.Cidades as SelectList, new {placeholder = "Escolha a Cidade", @class = "span3"})
+                        @Html.TextBox("Rua", Model, new {placeholder = "Insira a Rua", @class = "span12 nomargin"})
                     </div>
                 </div>
 
-                <div class="control-group">
-                    <label class="control-label">Password input</label>
-                    <div class="controls">
-                        <input class="span11" placeholder="Enter Password" type="password">
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label">Company info :</label>
-                    <div class="controls">
-                        <input class="span11" placeholder="Company name" type="text">
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label">Description field:</label>
-                    <div class="controls">
-                        <input class="span11" type="text">
-                        <span class="help-block">Description field</span>
-                    </div>
-                </div>
-
-                <div class="control-group">
-                    <label class="control-label">Message</label>
-                    <div class="controls">
-                        <textarea class="span11"></textarea>
-                    </div>
-                </div>
-
-                <div class="form-actions">
-                    <button type="submit" class="btn btn-success">Save</button>
+                <div class="form-actions" style="border-top-width: 0">
+                    <button type="submit" class="btn btn-success">Salvar</button>
                 </div>
             }
         </div>
     </div>
 </div>
+
+@section Scripts
+{
+    <script type="text/javascript">
+        $(function() {
+            $(document).tooltip({
+                items: ".input-validation-error",
+                content: function() {
+                    return $(this).attr('data-val-required');
+                }
+            });
+        });
+    </script>
+}

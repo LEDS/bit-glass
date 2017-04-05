@@ -63,9 +63,9 @@
                         <td>@paciente.Cidade.Nome</td>
                         <td>@paciente.Rg</td>
                         <td class="taskOptions">
-                            <a href=@Url.Action("Detalhes", new {Id = paciente.TelefonavelId}) class="tip-top" data-original-title="Detalhes">
+                            <a href=@Url.Action("Detalhes", new {id = paciente.TelefonavelId}) class="tip-top" data-original-title="Detalhes">
                                 <i class="icon-search"></i>
-                            </a> <a href=@Url.Action("Deletar", new {Id = paciente.TelefonavelId}) class="tip-top" data-original-title="Deletar">
+                            </a> <a href=@Url.Action("Deletar", new {id = paciente.TelefonavelId}) class="tip-top" data-original-title="Deletar">
                                 <i class="icon-remove"></i>
                             </a>
                         </td>
@@ -81,6 +81,6 @@ else
     <div class="alert alert-info alert-block">
         <h4>Oops!</h4>
         Ainda não existem pacientes cadastrados!
-        Que tal <em>@Html.ActionLink("cadastrar um novo", "Novo")</em>?
+        Que tal <em><strong>@Html.ActionLink("cadastrar um novo", "Novo")</strong></em> ?
     </div>
 }
