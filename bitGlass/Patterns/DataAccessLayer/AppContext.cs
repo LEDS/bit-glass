@@ -15,6 +15,8 @@ namespace bitGlass.Patterns.DataAccessLayer
         public DbSet<Estado> Estados { get; set; }
         public DbSet<Telefonavel> Telefonaveis { get; set; }
         public DbSet<Pessoa> Pessoas { get; set; }
+        public DbSet<Fornecedor> Fornecedores { get; set; }
+        public DbSet<Paciente> Pacientes { get; set; }
         public DbSet<Receita> Receitas { get; set; }
         public DbSet<Telefone> Telefones { get; set; }
         public DbSet<HistoricoEstado> HistoricosEstados { get; set; }

@@ -11,6 +11,6 @@ namespace bitGlass.Models.Pessoas
         public int Cpf { get; set; }
         public string Rg { get; set; }
         public Cidade Cidade { get; set; }
-        public List<Receita> Receitas { get; set; }
+        public new List<Receita> Receitas { get; set; }
     }
 }

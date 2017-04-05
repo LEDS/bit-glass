@@ -1,0 +1,50 @@
+﻿@model List<bitGlass.Models.Pessoas.Paciente>
+
+@{ ViewBag.Title = "Pacientes"; }
+
+@section BreadcrumbsBody
+{
+    <a href="#" class="current">Pacientes</a>
+}
+
+<div class="widget-box">
+    <div class="widget-title">
+        <span class="icon">
+            <i class="icon-th"></i>
+        </span>
+        <h5>Todos os Pacientes</h5>
+    </div>
+
+    <div class="widget-content nopadding">
+        <table class="table table-bordered table-striped">
+            <thead>
+            <tr>
+                <th>Nome Completo</th>
+                <th>Data Nascimento</th>
+                <th>Cidade</th>
+                <th>Identidade</th>
+                <th>Opts</th>
+            </tr>
+            </thead>
+
+            <tbody>
+            @foreach (var paciente in Model)
+            {
+                <tr>
+                    <td>@($"{paciente.PrimeiroNome} {paciente.SegundoNome}")</td>
+                    <td>@paciente.DataNascimento.ToString("dd/MM/yyyy")</td>
+                    <td>@paciente.Cidade.Nome</td>
+                    <td>@paciente.Rg</td>
+                    <td class="taskOptions">
+                        <a href=@Url.Action("Detalhes", new {Id = paciente.TelefonavelId}) class="tip-top" data-original-title="Detalhes">
+                            <i class="icon-search"></i>
+                        </a> <a href=@Url.Action("Deletar", new {Id = paciente.TelefonavelId}) class="tip-top" data-original-title="Deletar">
+                            <i class="icon-remove"></i>
+                        </a>
+                    </td>
+                </tr>
+            }
+            </tbody>
+        </table>
+    </div>
+</div>
