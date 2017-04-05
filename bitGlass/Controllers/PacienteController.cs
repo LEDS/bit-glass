@@ -1,7 +1,9 @@
-﻿using System.Data.Entity;
+﻿using System;
+using System.Data.Entity;
+using System.Linq;
 using System.Threading.Tasks;
 using System.Web.Mvc;
-using System.Web.UI;
+using bitGlass.Models.Pessoas;
 using bitGlass.Patterns.DataAccessLayer;
 
 namespace bitGlass.Controllers
@@ -10,24 +12,40 @@ namespace bitGlass.Controllers
     {
         private readonly AppContext _context = new AppContext();
 
+        // GET /Paciente/Index
         public async Task<ActionResult> Index()
         {
-            return View(await _context.Pacientes.Include(p => p.Cidade).ToListAsync());
+            var pacientes = await _context.Pacientes
+                .Include(p => p.Cidade)
+                .OrderBy(p => p.PrimeiroNome)
+                .ToListAsync();
+
+            return View(pacientes);
         }
 
+        // GET /Paciente/Novo
+        [HttpGet]
         public ActionResult Novo()
         {
-            throw new System.NotImplementedException();
+            return View();
         }
 
+        [HttpPost]
+        public ActionResult Novo(Paciente paciente)
+        {
+            throw new NotImplementedException();
+        }
+
+        // GET /Paciente/Detalhes/1
         public ActionResult Detalhes(int id)
         {
             return View();
         }
 
+        // POST /Paciente/Deletar/1
         public ActionResult Deletar(int id)
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }

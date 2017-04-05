@@ -1,4 +1,5 @@
-﻿using System.Web.Mvc;
+﻿using System;
+using System.Web.Mvc;
 
 namespace bitGlass.Controllers
 {
@@ -6,12 +7,12 @@ namespace bitGlass.Controllers
     {
         public ActionResult Index()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
 
         public ActionResult VerificarStatus()
         {
-            throw new System.NotImplementedException();
+            throw new NotImplementedException();
         }
     }
 }
