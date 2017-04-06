@@ -10,6 +10,9 @@ namespace bitGlass.Models.Pessoas
         public DateTime DataNascimento { get; set; }
 
         [Required]
+        public int CidadeId { get; set; }
+
+        [Required]
         public string Bairro { get; set; }
 
         [Required]
