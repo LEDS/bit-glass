@@ -27,7 +27,6 @@ namespace bitGlass.Models.Pessoas
         [Required]
         public string Rg { get; set; }
 
-        [Required]
         public Cidade Cidade { get; set; }
 
         public new virtual List<Receita> Receitas { get; set; }
