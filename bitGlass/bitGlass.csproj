@@ -212,6 +212,8 @@
     <Content Include="Views\Shared\_TopHeader.cshtml" />
     <Content Include="Views\Paciente\Index.cshtml" />
     <Content Include="Views\Paciente\Novo.cshtml" />
+    <Content Include="Views\Paciente\Detalhes.cshtml" />
+    <Content Include="Views\Shared\OrdensMesNotificacao.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

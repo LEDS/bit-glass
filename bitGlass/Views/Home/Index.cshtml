@@ -524,12 +524,5 @@
 </div>
 
 @section Scripts {
-    <script type="text/javascript">
-        $.gritter.add({
-            title: 'AAAAAAAAAAAAAAAAAAA',
-            text: 'You have 12 unread messages.',
-            image: '../../Content/img/envelope.png',
-            sticky: true
-        });
-    </script>
+    @Html.Action("OrdensMesNotificacao", "OrdemServico")
 }

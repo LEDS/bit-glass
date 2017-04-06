@@ -51,6 +51,7 @@ namespace bitGlass.Controllers
 
             if (paciente != null)
                 return View(paciente);
+
             return HttpNotFound();
         }
 
@@ -63,6 +64,12 @@ namespace bitGlass.Controllers
             _context.SaveChanges();
 
             return RedirectToAction("Index");
+        }
+
+        public int QuantidadePacientesInadimplentes()
+        {
+            // TODO
+            return 0;
         }
     }
 }

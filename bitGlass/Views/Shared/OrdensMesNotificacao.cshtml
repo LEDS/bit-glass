@@ -1,0 +1,12 @@
+﻿@model List<bitGlass.Models.Faturamento.OrdemServico>
+
+@if (Model.Any())
+{
+    <script type="text/javascript">
+        $.gritter.add({
+            title: 'Ordens de Serviço Pendentes!',
+            text: 'Você possui #@Model.Count serviço(s) para esse mês!',
+            sticky: true
+        });
+    </script>
+}

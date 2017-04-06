@@ -57,6 +57,9 @@ else
             <li class="submenu">
                 <a href=@Url.Action("Index", "Paciente")>
                     <i class="icon icon-user"></i> <span>Pacientes</span>
+                    <span class="label label-warning">
+                        @Html.Action("QuantidadePacientesInadimplentes", "Paciente")
+                    </span>
                 </a>
 
                 <ul>
@@ -95,8 +98,8 @@ else
             <li class="submenu">
                 <a href=@Url.Action("Index", "OrdemServico")>
                     <i class="icon icon-cogs"></i> <span>Ordens de Serviços</span>
-                    <span class="label label-success">
-                        @{ Html.RenderAction("ObterOrdensPendentes", "OrdemServico"); }
+                    <span class="label label-warning">
+                        @Html.Action("QuantidadeOsPendentes", "OrdemServico")
                     </span>
                 </a>
 
