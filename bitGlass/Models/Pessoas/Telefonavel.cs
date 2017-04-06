@@ -7,6 +7,7 @@ namespace bitGlass.Models.Pessoas
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TelefonavelId { get; set; }
-        public List<Telefone> Telefones { get; set; }
+
+        public virtual List<Telefone> Telefones { get; set; }
     }
 }

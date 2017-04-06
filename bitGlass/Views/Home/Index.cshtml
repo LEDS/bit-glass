@@ -1,10 +1,29 @@
-﻿<!--breadcrumbs-->
-<div id="content-header">
-    <div id="breadcrumb">
-        <a href="index.html" title="Go to Home" class="tip-bottom"><i class="icon-home"></i> Home</a>
-    </div>
-</div>
-<!--End-breadcrumbs-->
+﻿@section BreadcrumbsBody { }
+
+@section BasicScripts
+{
+    <script src="~/Content/js/excanvas.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.flot.min.js"></script>
+    <script src="~/Content/js/jquery.flot.resize.min.js"></script>
+    <script src="~/Content/js/jquery.peity.min.js"></script>
+    <script src="~/Content/js/fullcalendar.min.js"></script>
+    <script src="~/Content/js/matrix.js"></script>
+    <script src="~/Content/js/matrix.dashboard.js"></script>
+    <script src="~/Content/js/jquery.gritter.min.js"></script>
+    <script src="~/Content/js/matrix.interface.js"></script>
+    <script src="~/Content/js/matrix.chat.js"></script>
+    <script src="~/Content/js/jquery.validate.js"></script>
+    <script src="~/Content/js/matrix.form_validation.js"></script>
+    <script src="~/Content/js/jquery.wizard.js"></script>
+    <script src="~/Content/js/jquery.uniform.js"></script>
+    <script src="~/Content/js/select2.min.js"></script>
+    <script src="~/Content/js/matrix.popover.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/matrix.tables.js"></script>
+}
 <!--Action boxes-->
 <div class="container-fluid">
     <div class="quick-actions_homepage">
@@ -503,3 +522,74 @@
         </div>
     </div>
 </div>
+<div class="widget-box collapsible">
+    <div class="widget-title">
+        <a data-toggle="collapse" href="#collapseOne">
+            <span class="icon">
+                <i class="icon-arrow-right"></i>
+            </span>
+            <h5>Toggle, Open by default, </h5>
+        </a>
+    </div>
+    <div id="collapseOne" class="collapse in">
+        <div class="widget-content"> This box is opened by default, paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end. </div>
+    </div>
+    <div class="widget-title">
+        <a data-toggle="collapse" href="#collapseTwo">
+            <span class="icon">
+                <i class="icon-remove"></i>
+            </span>
+            <h5>Toggle, closed by default</h5>
+        </a>
+    </div>
+    <div id="collapseTwo" class="collapse">
+        <div class="widget-content"> This box is now open </div>
+    </div>
+    <div class="widget-title">
+        <a data-toggle="collapse" href="#collapseThree">
+            <span class="icon">
+                <i class="icon-remove"></i>
+            </span>
+            <h5>Toggle, closed by default</h5>
+        </a>
+    </div>
+    <div id="collapseThree" class="collapse">
+        <div class="widget-content"> This box is now open </div>
+    </div>
+</div>
+<div class="widget-box">
+    <div class="widget-title">
+        <ul class="nav nav-tabs">
+            <li class="active">
+                <a data-toggle="tab" href="#tab1">Tab1</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#tab2">Tab2</a>
+            </li>
+            <li>
+                <a data-toggle="tab" href="#tab3">Tab3</a>
+            </li>
+        </ul>
+    </div>
+    <div class="widget-content tab-content">
+        <div id="tab1" class="tab-pane active">
+            <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment.</p>
+            <img src="img/demo/demo-image1.jpg" alt="demo-image"/>
+        </div>
+        <div id="tab2" class="tab-pane">
+            <img src="img/demo/demo-image2.jpg" alt="demo-image"/>
+            <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment.</p>
+        </div>
+        <div id="tab3" class="tab-pane">
+            <p>And is full of waffle to It has multiple paragraphs and is full of waffle to pad out the comment. Usually, you just wish these sorts of comments would come to an end.multiple paragraphs and is full of waffle to pad out the comment. </p>
+            <img src="img/demo/demo-image3.jpg" alt="demo-image"/>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+</div>
+
+@section Scripts {
+    @Html.Action("OrdensMesNotificacao", "OrdemServico")
+}
