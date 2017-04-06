@@ -15,7 +15,6 @@ namespace bitGlass.Controllers
             if (TempData.Peek("User") != null)
                 return RedirectToAction("Index", "Home");
 
-            return View();
         }
 
         public ActionResult Login(UsuarioLogin usuarioLogin)
@@ -32,7 +31,6 @@ namespace bitGlass.Controllers
         public ActionResult Logout()
         {
             TempData.Remove("User");
-            return RedirectToAction("Index");
         }
     }
 }
