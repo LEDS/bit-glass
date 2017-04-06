@@ -1,4 +1,5 @@
-﻿using System.ComponentModel.DataAnnotations.Schema;
+﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace bitGlass.Models.Pessoas
 {
@@ -7,9 +8,13 @@ namespace bitGlass.Models.Pessoas
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int TelefoneId { get; set; }
 
-        public int TelefonavelId { get; set; }
+        [Required]
         public int Ddd { get; set; }
+
+        [Required]
         public int Numero { get; set; }
+
+        [Required]
         public Telefonavel Telefonavel { get; set; }
     }
 }

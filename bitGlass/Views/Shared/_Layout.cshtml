@@ -1,199 +1,204 @@
-﻿<!DOCTYPE html>
-<html lang="en">
-<head>
-    <title>bitGlass : @ViewBag.Title</title>
-    <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-    <link rel="stylesheet" href="~/Content/css/bootstrap.min.css"/>
-    <link rel="stylesheet" href="~/Content/css/bootstrap-responsive.min.css"/>
-    <link rel="stylesheet" href="~/Content/css/fullcalendar.css"/>
-    <link rel="stylesheet" href="~/Content/css/matrix-style.css"/>
-    <link rel="stylesheet" href="~/Content/css/matrix-media.css"/>
-    <link href="~/Content/css/font-awesome.css" rel="stylesheet"/>
-    <link rel="stylesheet" href="~/Content/css/jquery.gritter.css"/>
-    <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet" type="text/css">
-</head>
-
-<body>
-
-@if (TempData.Peek("User") == null)
+﻿@if (TempData.Peek("User") == null)
 {
-    Response.Redirect("Login/Index");
+    Response.Redirect("/");
 }
+else
+{
+    <!DOCTYPE html>
+    <html lang="en">
+    <head>
+        <title>bitGlass : @ViewBag.Title</title>
+        <meta charset="UTF-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+        <link rel="stylesheet" href="~/Content/css/bootstrap.min.css"/>
+        <link rel="stylesheet" href="~/Content/css/bootstrap-responsive.min.css"/>
+        <link rel="stylesheet" href="~/Content/css/fullcalendar.css"/>
+        <link rel="stylesheet" href="~/Content/css/matrix-style.css"/>
+        <link rel="stylesheet" href="~/Content/css/matrix-media.css"/>
+        <link href="~/Content/css/font-awesome.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="~/Content/css/jquery.gritter.css"/>
+        <link href="http://fonts.googleapis.com/css?family=Open+Sans:400,700,800" rel="stylesheet" type="text/css">
+    </head>
 
-<!--Header-part-->
-<div id="header">
-    <h1>
-        @Html.ActionLink("bitGlass", "Index", "Home")
-    </h1>
-</div>
-<!--close-Header-part-->
+    <body>
 
-<!--top-Header-menu-->
-@Html.Partial("_TopHeader", TempData.Peek("User"))
-<!--close-top-Header-menu-->
 
-<!--start-top-serch
-<div id="search">
-    <input type="text" placeholder="Search here..."/>
-    <button type="submit" class="tip-bottom" title="Search">
-        <i class="icon-search icon-white"></i>
-    </button>
-</div>
-close-top-serch-->
-
-<!--sidebar-menu-->
-<div id="sidebar">
-    <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
-    <ul>
-        <li class="active">
-            <a href=@Url.Action("Index", "Home")>
-                <i class="icon icon-dashboard"></i> <span>Início</span>
-            </a>
-        </li>
-
-        <li class="submenu">
-            <a href=@Url.Action("Index", "Paciente")>
-                <i class="icon icon-user"></i> <span>Pacientes</span>
-            </a>
-
-            <ul>
-                <li>
-                    <a href=@Url.Action("Index", "Paciente")>
-                        <i class="icon-list"></i> <span>Listar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=@Url.Action("Novo", "Paciente")>
-                        <i class="icon icon-plus"></i> <span>Novo Paciente</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="submenu">
-            <a href=@Url.Action("Index", "Fornecedor")>
-                <i class="icon icon-group"></i> <span>Fornecedores</span>
-            </a>
-            
-            <ul>
-                <li>
-                    <a href=@Url.Action("Index", "Fornecedor")>
-                        <i class="icon-list"></i> <span>Listar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=@Url.Action("Novo", "Fornecedor")>
-                        <i class="icon icon-plus"></i> <span>Novo Fornecedor</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="submenu">
-            <a href=@Url.Action("Index", "OrdemServico")>
-                <i class="icon icon-cogs"></i> <span>Ordens de Serviços</span>
-            </a>
-
-            <ul>
-                <li>
-                    <a href=@Url.Action("Index", "OrdemServico")>
-                        <i class="icon-list"></i> <span>Listar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=@Url.Action("VerificarStatus", "OrdemServico")>
-                        <i class="icon icon-ok"></i> <span>Verificar Status</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-
-        <li class="submenu">
-            <a href=@Url.Action("Index", "Receita")>
-                <i class="icon icon-tasks"></i> <span>Receitas</span>
-            </a>
-            
-            <ul>
-                <li>
-                    <a href=@Url.Action("Index", "Receita")>
-                        <i class="icon-list"></i> <span>Listar</span>
-                    </a>
-                </li>
-                <li>
-                    <a href=@Url.Action("Nova", "Receita")>
-                        <i class="icon icon-plus"></i> <span>Nova Receita</span>
-                    </a>
-                </li>
-            </ul>
-        </li>
-    </ul>
-</div>
-<!--sidebar-menu-->
-
-<!--main-container-part-->
-<div id="content">
-    @RenderBody();
-</div>
-<!--end-main-container-part-->
-
-<!--Footer-part-->
-<div class="row-fluid">
-    <div id="footer" class="span12">
-        2017 &copy; bitGlass
+    <!--Header-part-->
+    <div id="header">
+        <h1>
+            @Html.ActionLink("bitGlass", "Index", "Home")
+        </h1>
     </div>
-</div>
-<!--end-Footer-part-->
+    <!--close-Header-part-->
 
-<script src="~/Content/js/excanvas.min.js"></script>
-<script src="~/Content/js/jquery.min.js"></script>
-<script src="~/Content/js/jquery.ui.custom.js"></script>
-<script src="~/Content/js/bootstrap.min.js"></script>
-<script src="~/Content/js/jquery.flot.min.js"></script>
-<script src="~/Content/js/jquery.flot.resize.min.js"></script>
-<script src="~/Content/js/jquery.peity.min.js"></script>
-<script src="~/Content/js/fullcalendar.min.js"></script>
-<script src="~/Content/js/matrix.js"></script>
-<script src="~/Content/js/matrix.dashboard.js"></script>
-<script src="~/Content/js/jquery.gritter.min.js"></script>
-<script src="~/Content/js/matrix.interface.js"></script>
-<script src="~/Content/js/matrix.chat.js"></script>
-<script src="~/Content/js/jquery.validate.js"></script>
-<script src="~/Content/js/matrix.form_validation.js"></script>
-<script src="~/Content/js/jquery.wizard.js"></script>
-<script src="~/Content/js/jquery.uniform.js"></script>
-<script src="~/Content/js/select2.min.js"></script>
-<script src="~/Content/js/matrix.popover.js"></script>
-<script src="~/Content/js/jquery.dataTables.min.js"></script>
-<script src="~/Content/js/matrix.tables.js"></script>
+    <!--top-Header-menu-->
+    @Html.Partial("_TopHeader", TempData.Peek("User"))
+    <!--close-top-Header-menu-->
 
-<script type="text/javascript">
-    // This function is called from the pop-up menus to transfer to
-    // a different page. Ignore if the value returned is a null string:
-    function goPage(newUrl) {
+    <!--start-top-serch
+    <div id="search">
+        <input type="text" placeholder="Search here..."/>
+        <button type="submit" class="tip-bottom" title="Search">
+            <i class="icon-search icon-white"></i>
+        </button>
+    </div>
+    close-top-serch-->
 
-        // if url is empty, skip the menu dividers and reset the menu selection to default
-        if (newUrl !== "") {
+    <!--sidebar-menu-->
+    <div id="sidebar">
+        <a href="#" class="visible-phone"><i class="icon icon-home"></i> Dashboard</a>
+        <ul>
+            <li class="active">
+                <a href=@Url.Action("Index", "Home")>
+                    <i class="icon icon-dashboard"></i> <span>Início</span>
+                </a>
+            </li>
 
-            // if url is "-", it is this page -- reset the menu:
-            if (newUrl === "-") {
-                resetMenu();
-            }
-            // else, send page to designated URL
-            else {
-                document.location.href = newUrl;
+            <li class="submenu">
+                <a href=@Url.Action("Index", "Paciente")>
+                    <i class="icon icon-user"></i> <span>Pacientes</span>
+                    <span class="label label-warning">
+                        @Html.Action("QuantidadePacientesInadimplentes", "Paciente")
+                    </span>
+                </a>
+
+                <ul>
+                    <li>
+                        <a href=@Url.Action("Index", "Paciente")>
+                            <i class="icon-list"></i> <span>Listar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Novo", "Paciente")>
+                            <i class="icon icon-plus"></i> <span>Novo Paciente</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href=@Url.Action("Index", "Fornecedor")>
+                    <i class="icon icon-group"></i> <span>Fornecedores</span>
+                </a>
+
+                <ul>
+                    <li>
+                        <a href=@Url.Action("Index", "Fornecedor")>
+                            <i class="icon-list"></i> <span>Listar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Novo", "Fornecedor")>
+                            <i class="icon icon-plus"></i> <span>Novo Fornecedor</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href=@Url.Action("Index", "OrdemServico")>
+                    <i class="icon icon-cogs"></i> <span>Ordens de Serviços</span>
+                    <span class="label label-warning">
+                        @Html.Action("QuantidadeOsPendentes", "OrdemServico")
+                    </span>
+                </a>
+
+                <ul>
+                    <li>
+                        <a href=@Url.Action("Index", "OrdemServico")>
+                            <i class="icon-list"></i> <span>Listar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("VerificarStatus", "OrdemServico")>
+                            <i class="icon icon-ok"></i> <span>Verificar Status</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+
+            <li class="submenu">
+                <a href=@Url.Action("Index", "Receita")>
+                    <i class="icon icon-tasks"></i> <span>Receitas</span>
+                </a>
+
+                <ul>
+                    <li>
+                        <a href=@Url.Action("Index", "Receita")>
+                            <i class="icon-list"></i> <span>Listar</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href=@Url.Action("Nova", "Receita")>
+                            <i class="icon icon-plus"></i> <span>Nova Receita</span>
+                        </a>
+                    </li>
+                </ul>
+            </li>
+        </ul>
+    </div>
+    <!--sidebar-menu-->
+
+    <!--main-container-part-->
+    <div id="content">
+        <div id="content-header">
+            <div id="breadcrumb">
+                <a href=@Url.Action("Index", "Home") class="tip-bottom" data-original-title="Ir para o Início">
+                    <i class="icon-home"></i> Início
+                </a>
+
+                @RenderSection("BreadcrumbsBody")
+            </div>
+            <h1>@ViewBag.Title</h1>
+        </div>
+
+        <div class="container-fluid">
+            @RenderBody()
+        </div>
+    </div>
+    <!--end-main-container-part-->
+
+    <!--Footer-part-->
+    <div class="row-fluid">
+        <div id="footer" class="span12">
+            2017 &copy; bitGlass
+        </div>
+    </div>
+    <!--end-Footer-part-->
+
+    <!--scripts do template-->
+    @RenderSection("BasicScripts")
+    <!--fim scripts do template-->
+
+
+    <script type="text/javascript">
+        // This function is called from the pop-up menus to transfer to
+        // a different page. Ignore if the value returned is a null string:
+        function goPage(newUrl) {
+
+            // if url is empty, skip the menu dividers and reset the menu selection to default
+            if (newUrl !== "") {
+
+                // if url is "-", it is this page -- reset the menu:
+                if (newUrl === "-") {
+                    resetMenu();
+                }
+                // else, send page to designated URL
+                else {
+                    document.location.href = newUrl;
+                }
             }
         }
-    }
 
-// resets the menu selection upon entry to this page:
-    function resetMenu() {
-        document.gomenu.selector.selectedIndex = 2;
-    }
-</script>
+        // resets the menu selection upon entry to this page:
+        function resetMenu() {
+            document.gomenu.selector.selectedIndex = 2;
+        }
+    </script>
 
-<!-- Renderiza scripts opcionais -->
-@RenderSection("Scripts", required: false)
+    <!-- scripts opcionais -->
+    @RenderSection("Scripts", required: false)
 
-</body>
-</html>
+    </body>
+    </html>
+}

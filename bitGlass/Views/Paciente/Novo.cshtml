@@ -1,0 +1,92 @@
+﻿@model bitGlass.Models.Pessoas.Paciente
+
+@{
+    ViewBag.Title = "Novo Paciente";
+}
+
+<style>
+    .mwrap {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 6px;
+        padding-right: 6px;
+        margin-bottom: 10px !important
+    }
+
+    .nomargin { margin-left: 0 !important }
+</style>
+
+@section BreadcrumbsBody
+{
+    <a href=@Url.Action("Index") class="tip-bottom" data-original-title="Pacientes">
+        <i class="icon-home"></i> Pacientes
+    </a>
+
+    <a href="#" class="current">
+        Novo
+    </a>
+}
+
+@section BasicScripts
+{
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/bootstrap-colorpicker.js"></script>
+    <script src="~/Content/js/bootstrap-datepicker.js"></script>
+    <script src="~/Content/js/masked.js"></script>
+    <script src="~/Content/js/jquery.uniform.js"></script>
+    <script src="~/Content/js/matrix.js"></script>
+    <script src="~/Content/js/matrix.form_common.js"></script>
+    <script src="~/Content/js/wysihtml5-0.3.0.js"></script>
+    <script src="~/Content/js/jquery.peity.min.js"></script>
+    <script src="~/Content/js/bootstrap-wysihtml5.js"></script>
+}
+
+
+<div class="row-fluid">
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon">
+                <i class="icon-align-justify"></i>
+            </span>
+            <h5>Informações Pessoais</h5>
+        </div>
+
+        <div class="widget-content">
+            @using (Html.BeginForm("Novo", "Paciente", FormMethod.Post, new {@class = "widget-content", style = "border-bottom-width: 0px;"}))
+            {
+                <div class="control-group">
+                    <label class="control-label">Nome</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("PrimeiroNome", Model, new {placeholder = "Insira o Primeiro Nome", @class = "span6"})
+                        @Html.TextBox("SegundoNome", Model, new {placeholder = "Insira o Segundo Nome", @class = "span6"})
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Dados Pessoais</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("DataNascimento", Model, new {placeholder = "Insira a Data de Nascimento", @class = "datepicker span6", type = "date"})
+                        @Html.TextBox("Rg", Model, new {placeholder = "Insira o Rg", @class = "span3"})
+                        @Html.TextBox("Cpf", Model, new {placeholder = "Insira o Cpf", @class = "span3"})
+                    </div>
+                </div>
+
+                <div class="control-group">
+                    <label class="control-label">Endereço</label>
+                    <div class="controls controls-row">
+                        @Html.TextBox("Bairro", Model, new {placeholder = "Insira o Bairro", @class = "span6"})
+                        @Html.TextBox("Cep", Model, new {placeholder = "Insira o Cep", @class = "span3"})
+                        @Html.DropDownListFor(p => p.CidadeId, ViewBag.Cidades as SelectList, new {placeholder = "Escolha a Cidade", @class = "span3"})
+                        @Html.TextBox("Rua", Model, new {placeholder = "Insira a Rua", @class = "span12 nomargin"})
+                    </div>
+                </div>
+
+                <div class="form-actions" style="border-top-width: 0">
+                    <button type="submit" class="btn btn-success">Salvar</button>
+                </div>
+            }
+        </div>
+    </div>
+</div>

@@ -1,0 +1,87 @@
+﻿@model List<bitGlass.Models.Pessoas.Paciente>
+
+@{ ViewBag.Title = "Pacientes"; }
+
+@section BreadcrumbsBody
+{
+    <a href="#" class="current">Pacientes</a>
+}
+
+@section BasicScripts
+{
+    <script src="~/Content/js/excanvas.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.flot.min.js"></script>
+    <script src="~/Content/js/jquery.flot.resize.min.js"></script>
+    <script src="~/Content/js/jquery.peity.min.js"></script>
+    <script src="~/Content/js/fullcalendar.min.js"></script>
+    <script src="~/Content/js/matrix.js"></script>
+    <script src="~/Content/js/matrix.dashboard.js"></script>
+    <script src="~/Content/js/jquery.gritter.min.js"></script>
+    <script src="~/Content/js/matrix.interface.js"></script>
+    <script src="~/Content/js/matrix.chat.js"></script>
+    <script src="~/Content/js/jquery.validate.js"></script>
+    <script src="~/Content/js/matrix.form_validation.js"></script>
+    <script src="~/Content/js/jquery.wizard.js"></script>
+    <script src="~/Content/js/jquery.uniform.js"></script>
+    <script src="~/Content/js/select2.min.js"></script>
+    <script src="~/Content/js/matrix.popover.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/matrix.tables.js"></script>
+}
+
+@if (Model.Any())
+{
+    <div class="widget-box">
+        <div class="widget-title">
+            <span class="icon">
+                <i class="icon-th"></i>
+            </span>
+            <h5>Todos os Pacientes</h5>
+        </div>
+
+        <div class="widget-content nopadding">
+            <table class="table table-bordered table-striped">
+                <thead>
+                <tr>
+                    <th>Nome Completo</th>
+                    <th>Data Nascimento</th>
+                    <th>Cidade</th>
+                    <th>Identidade</th>
+                    <th>Opts</th>
+                </tr>
+                </thead>
+
+                <tbody>
+                @foreach (var paciente in Model)
+                {
+                    <tr>
+                        <td>@($"{paciente.PrimeiroNome} {paciente.SegundoNome}")</td>
+                        <td>@paciente.DataNascimento.ToString("dd/MM/yyyy")</td>
+                        <td>@paciente.Cidade.Nome</td>
+                        <td>@paciente.Rg</td>
+
+                        <td class="taskOptions">
+                            <a href=@Url.Action("Detalhes", new {id = paciente.TelefonavelId}) class="tip-top" data-original-title="Detalhes">
+                                <i class="icon-search"></i>
+                            </a> <a href=@Url.Action("Deletar", new {id = paciente.TelefonavelId}) class="tip-top" data-original-title="Deletar">
+                                <i class="icon-remove"></i>
+                            </a>
+                        </td>
+                    </tr>
+                }
+                </tbody>
+            </table>
+        </div>
+    </div>
+}
+else
+{
+    <div class="alert alert-info alert-block">
+        <h4>Oops!</h4>
+        Ainda não existem pacientes cadastrados!
+        Que tal <em><strong>@Html.ActionLink("cadastrar um novo", "Novo")</strong></em> ?
+    </div>
+}
