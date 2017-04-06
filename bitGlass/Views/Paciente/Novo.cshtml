@@ -65,10 +65,11 @@
                 </div>
 
                 <div class="control-group">
-                    <label class="control-label">Date de Nascimento</label>
+                    <label class="control-label">Dados Pessoais</label>
                     <div class="controls controls-row">
                         @Html.TextBox("DataNascimento", Model, new {placeholder = "Insira a Data de Nascimento", @class = "datepicker span6", type = "date"})
-                        @Html.TextBox("Rg", Model, new {placeholder = "Insira o Rg", @class = "span6"})
+                        @Html.TextBox("Rg", Model, new {placeholder = "Insira o Rg", @class = "span3"})
+                        @Html.TextBox("Cpf", Model, new {placeholder = "Insira o Cpf", @class = "span3"})
                     </div>
                 </div>
 
@@ -89,17 +90,3 @@
         </div>
     </div>
 </div>
-
-@section Scripts
-{
-    <script type="text/javascript">
-        $(function() {
-            $(document).tooltip({
-                items: ".input-validation-error",
-                content: function() {
-                    return $(this).attr('data-val-required');
-                }
-            });
-        });
-    </script>
-}

@@ -1,0 +1,126 @@
+﻿@model bitGlass.Models.Pessoas.Paciente
+
+@{
+    ViewBag.Title = "Detalhes";
+}
+
+@section BreadcrumbsBody
+{
+    <a href=@Url.Action("Index") class="tip-bottom" data-original-title="Pacientes">
+        <i class="icon-home"></i> Pacientes
+    </a>
+
+    <a href="#" class="current">
+        Detalhes
+    </a>
+}
+
+@section BasicScripts
+{
+    <script src="~/Content/js/excanvas.min.js"></script>
+    <script src="~/Content/js/jquery.min.js"></script>
+    <script src="~/Content/js/jquery.ui.custom.js"></script>
+    <script src="~/Content/js/bootstrap.min.js"></script>
+    <script src="~/Content/js/jquery.flot.min.js"></script>
+    <script src="~/Content/js/jquery.flot.resize.min.js"></script>
+    <script src="~/Content/js/jquery.peity.min.js"></script>
+    <script src="~/Content/js/fullcalendar.min.js"></script>
+    <script src="~/Content/js/matrix.js"></script>
+    <script src="~/Content/js/matrix.dashboard.js"></script>
+    <script src="~/Content/js/jquery.gritter.min.js"></script>
+    <script src="~/Content/js/matrix.interface.js"></script>
+    <script src="~/Content/js/matrix.chat.js"></script>
+    <script src="~/Content/js/jquery.validate.js"></script>
+    <script src="~/Content/js/matrix.form_validation.js"></script>
+    <script src="~/Content/js/jquery.wizard.js"></script>
+    <script src="~/Content/js/jquery.uniform.js"></script>
+    <script src="~/Content/js/select2.min.js"></script>
+    <script src="~/Content/js/matrix.popover.js"></script>
+    <script src="~/Content/js/jquery.dataTables.min.js"></script>
+    <script src="~/Content/js/matrix.tables.js"></script>
+}
+
+<h2>Detalhes</h2>
+
+<div>
+    <h4>Paciente</h4>
+    <hr/>
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.PrimeiroNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PrimeiroNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.SegundoNome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.SegundoNome)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.DataNascimento)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.DataNascimento)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Bairro)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Bairro)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rua)
+        </dt>
+
+        <dd>
+            aaa
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cep)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cep)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cpf)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cpf)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Rg)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Rg)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Cidade.Nome)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Cidade.Nome)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new {id = Model.TelefonavelId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

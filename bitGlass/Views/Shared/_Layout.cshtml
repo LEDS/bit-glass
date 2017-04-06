@@ -95,6 +95,9 @@ else
             <li class="submenu">
                 <a href=@Url.Action("Index", "OrdemServico")>
                     <i class="icon icon-cogs"></i> <span>Ordens de Serviços</span>
+                    <span class="label label-success">
+                        @{ Html.RenderAction("ObterOrdensPendentes", "OrdemServico"); }
+                    </span>
                 </a>
 
                 <ul>

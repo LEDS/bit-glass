@@ -13,6 +13,7 @@ namespace bitGlass.Controllers
         private readonly AppContext _context = new AppContext();
 
         // GET /Paciente/Index
+        [HttpGet]
         public async Task<ActionResult> Index()
         {
             var pacientes = await _context.Pacientes
@@ -41,9 +42,16 @@ namespace bitGlass.Controllers
         }
 
         // GET /Paciente/Detalhes/1
+        [HttpGet]
         public ActionResult Detalhes(int id)
         {
-            return View();
+            var paciente = _context.Pacientes
+                .Include(p => p.Cidade)
+                .FirstOrDefault(p => p.TelefonavelId == id);
+
+            if (paciente != null)
+                return View(paciente);
+            return HttpNotFound();
         }
 
         // POST /Paciente/Deletar/1

@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 using bitGlass.Models.Faturamento;
 
@@ -9,9 +10,6 @@ namespace bitGlass.Models.Pessoas
     {
         [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
         public int ReceitaId { get; set; }
-
-        public int PacienteId { get; set; }
-        public int PessoaId { get; set; }
 
         public DateTime DataEmissao { get; set; }
 
@@ -52,8 +50,12 @@ namespace bitGlass.Models.Pessoas
         // Observacoes
         public string Observacoes { get; set; }
 
+        [Required]
         public Pessoa Medico { get; set; }
+
+        [Required]
         public Paciente Paciente { get; set; }
-        public List<OrdemServico> OrdensServicos { get; set; }
+
+        public virtual List<OrdemServico> OrdensServicos { get; set; }
     }
 }
